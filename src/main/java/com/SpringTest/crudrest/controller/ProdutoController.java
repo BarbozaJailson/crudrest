@@ -24,18 +24,18 @@ public class ProdutoController {
 	
 	@GetMapping("/produtos")
 	public ResponseEntity<Iterable<Produto>> obterProdutos(){
+		
 		return ResponseEntity
 				.status(HttpStatus.OK)
 				.body(lista);
 	}
 	
 	@PostMapping("/produtos")
-	public ResponseEntity<Produto> criarProduto(
-			@RequestBody Produto produto){
+	public ResponseEntity<Produto> criarProduto(@RequestBody Produto produto){
 		
 		produto.setId(proxId++);
 		
-		System.out.println(produto.toString());
+		System.out.println("Produto criado..." + produto.toString());
 		lista.add(produto);
 		return ResponseEntity
 				.status(HttpStatus.CREATED)
