@@ -3,14 +3,23 @@ package com.SpringTest.crudrest.model;
 import java.math.BigDecimal;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+//@Table(name = "TB_PROD")
 public class Produto {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String descricao;
 	private BigDecimal preco; 
 	
 	public Produto(Integer id, String nome, String descricao, BigDecimal preco) {
+		
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;
